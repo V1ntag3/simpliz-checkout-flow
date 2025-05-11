@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+@font-face {
+    font-family: 'Porter Sans Block';
+    src: url('@/assets/fonts/PorterSansBlock-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --simpliz-primary: #260D33;
+    --simpliz-secondary: #106B87;
+    --simpliz-accent: #7C4DFF;
+    --simpliz-background: #003F69;
+    --simpliz-error: #f44336;
+    --simpliz-success: #00B090;
+    --simpliz-warning: #FFC107;
+    --simpliz-info: #B3ACA4;
+
+    --simpliz-text-light: #ffffff;
+    --simpliz-text-dark: #212121;
+
+    --simpliz-font: 'Open Sans', sans-serif;
+    --simpliz-title-font: 'Porter Sans Block', sans-serif;
+
+}
+*{
+    font-family: var(--simpliz-font);
+}
+.lowercase {
+    text-transform: lowercase !important;
+}
+
+.capitalize {
+    text-transform: capitalize !important;
+}
+
+
+//Menu
+.v-toolbar__content{
+    gap: 10px;
+}
