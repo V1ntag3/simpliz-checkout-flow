@@ -1,22 +1,23 @@
 <template>
     <v-col style="display: flex; flex-direction: column; gap: 20px;">
-        <TitlePage title="Planos Disponíveis" />
+        <TitlePage title="Plans Disponíveis" />
 
         <v-row>
             <v-row class="mx-3">
-                <v-col class="" cols="12" md="4" lg="3">
+                <v-col style="display: flex; flex-direction:column; justify-content: center;padding-right: 10px;" class="" cols="12" md="4"
+                    lg="3">
                     <h1 class="title-text">Planos sob medida para seu crescimento</h1>
-                    <h3 class="title-description">Oferecemos planos flexíveis que se adaptam às suas necessidades –
+                    <h3 class="title-description">Oferecemos plans flexíveis que se adaptam às suas necessidades –
                         desde
                         quem está começando até empresas em expansão. Sem taxas escondidas, sem complicações.</h3>
                 </v-col>
-                <v-col class="cards" cols="12" md="4" lg="3" v-for="plano in planos" :key="plano.nome">
-                    <PlanCard :plano="plano" @selecionar="selecionarPlano(plano)" />
+                <v-col class="cards" cols="12" md="4" lg="3" v-for="plan in plans" :key="plan.name">
+                    <PlanCard :plan="plan" @select="selectPlan(plan)" />
                 </v-col>
             </v-row>
             <v-carousel class="mx-3 my-3 carousel" show-arrows-hover cycle hide-delimiters>
-                <v-carousel-item v-for="plano in planos" :key="plano.nome">
-                    <PlanCard :plano="plano" @selecionar="selecionarPlano(plano)" />
+                <v-carousel-item v-for="plan in plans" :key="plan.name">
+                    <PlanCard :plan="plan" @select="selectPlan(plan)" />
                 </v-carousel-item>
             </v-carousel>
         </v-row>
@@ -32,22 +33,66 @@ export default {
     components: { PlanCard, TitlePage },
     data() {
         return {
-            planos: [
+            plans: [
                 {
-                    nome: "Prata",
-                    description: "Ideal para quem está começando e deseja algo mais profissional",
+                    name: "Prata",
+                    description: "Ideal para quem está começando",
                     preco: 20,
-                    beneficios: [
+                    paymentPlans: [
+                        {
+                            title: "Plano Mensal",
+                            valueDiscount: null,
+                            months: 1
+                        },
+                        {
+                            title: "Plano Anual",
+                            valueDiscount: 18,
+                            months: 12
+                        },
+                        {
+                            title: "Plano 2 anos",
+                            valueDiscount: 16,
+                            months: 24
+                        },
+                        {
+                            title: "Plano 3 anos",
+                            valueDiscount: 14,
+                            months: 36
+                        }
+                    ],
+                    benefits: [
                         "Funcionalidades básicas",
                         "Até 3 usuários",
                         "Suporte por e-mail",
                     ],
                 },
                 {
-                    nome: "Ouro",
+                    name: "Ouro",
                     preco: 60,
                     description: "Para equipes que precisam de mais recursos",
-                    beneficios: [
+                    paymentPlans: [
+                        {
+                            title: "Plano Mensal",
+                            valueDiscount: null,
+                            months: 1
+                        },
+                        {
+                            title: "Plano Anual",
+                            valueDiscount: 50,
+                            months: 12
+                        },
+                        {
+                            title: "Plano 2 anos",
+                            valueDiscount: 40,
+                            months: 24
+                        },
+                        {
+                            title: "Plano 3 anos",
+                            valueDiscount: 30,
+                            months: 36
+                        }
+                    ],
+                    benefits: [
                         "Relatórios avançados",
                         "Integrações com ferramentas populares",
                         "Até 10 usuários",
@@ -55,10 +100,32 @@ export default {
                     ],
                 },
                 {
-                    nome: "Diamante",
+                    name: "Diamante",
                     description: "Soluções personalizadas para grandes equipes",
                     preco: 100,
-                    beneficios: [
+                    paymentPlans: [
+                        {
+                            title: "Plano Mensal",
+                            valueDiscount: null,
+                            months: 1
+                        },
+                        {
+                            title: "Plano Anual",
+                            valueDiscount: 80,
+                            months: 12
+                        },
+                        {
+                            title: "Plano 2 anos",
+                            valueDiscount: 70,
+                            months: 24
+                        },
+                        {
+                            title: "Plano 3 anos",
+                            valueDiscount: 60,
+                            months: 36
+                        }
+                    ],
+                    benefits: [
                         "Funcionalidades completas",
                         "Suporte dedicado",
                         "Onboarding personalizado",
@@ -70,8 +137,9 @@ export default {
         };
     },
     methods: {
-        selecionarPlano(plano) {
-            this.$router.push({ name: "Resumo", query: { plano: plano.nome } });
+        selectPlan(plan) {
+            this.$store.commit('setPlan', plan)
+            this.$router.push({ name: "ImplantationView" });
         },
     },
 };

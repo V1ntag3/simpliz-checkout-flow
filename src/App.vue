@@ -7,7 +7,7 @@
         <v-app-bar-nav-icon @click="sidebar = !sidebar" />
       </span>
       <v-btn class="lowercase item-menu hidden-sm-and-down" text to="/">Home</v-btn>
-      <v-btn class="lowercase item-menu hidden-sm-and-down" text to="/planos">Preços</v-btn>
+      <v-btn class="lowercase item-menu hidden-sm-and-down" text to="/plans">Preços</v-btn>
       <v-btn class="lowercase item-menu hidden-sm-and-down" text to="/adicionais">Serviços</v-btn>
       <v-btn class="lowercase item-menu hidden-sm-and-down" text to="/checkout">Pagamento</v-btn>
       <v-btn class="lowercase item-menu hidden-sm-and-down" text to="/confirmacao">Confirmação</v-btn>
@@ -20,7 +20,7 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link to="/planos">
+        <v-list-item link to="/plans">
           <v-list-item-content>
             <v-list-item-title>Preços</v-list-item-title>
           </v-list-item-content>
@@ -82,7 +82,7 @@ export default {
 }
 
 .container {
-  max-width: 1250px;
+  max-width: 1300px;
 }
 
 .item-menu {

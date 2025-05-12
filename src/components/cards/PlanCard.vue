@@ -1,23 +1,23 @@
 <template>
   <v-card outlined color="primary" style="border-color: white !important;" class="card" dark>
+    <div>
+      <div sty>
+        <v-card-title class="title">{{ plan.name }}</v-card-title>
+        <v-card-subtitle class="subtitle">{{ plan.description }}</v-card-subtitle>
+      </div>
 
-    <v-card-title class="title">{{ plano.nome }}</v-card-title>
-    <v-card-subtitle class="subtitle">{{ plano.description }}</v-card-subtitle>
 
-    <v-card-text>
-      <div class="price">R$ <span>{{ plano.preco }}</span>/mês</div>
-      <ul class="pa-0">
-        <li v-for="(beneficio, index) in plano.beneficios" :key="index">
-          <div class="item-feature">
-            <Check color="var(--simpliz-success)" :size="20" /> {{ beneficio }}
-          </div>
-          <hr v-if="index < plano.beneficios.length - 1" class="full-width-divider" />
-        </li>
-      </ul>
-    </v-card-text>
+      <v-card-text>
+        <div class="price">R$ <span>{{ plan.preco }}</span>/mês</div>
+        <ul class="pa-0">
+          <ItemCheck v-for="(benefit, index) in plan.benefits" :key="index" :description="benefit"
+            :max-array="plan.benefits.length" :index="index" />
+        </ul>
+      </v-card-text>
+    </div>
 
     <v-card-actions>
-      <v-btn color="white"  class="black--text capitalize button-plan" @click="$emit('selecionar')">
+      <v-btn color="white" class="capitalize button-plan" @click="$emit('select')">
         Contratar
       </v-btn>
     </v-card-actions>
@@ -25,12 +25,12 @@
 </template>
 
 <script>
-import { Check } from 'lucide-vue'
+import ItemCheck from '../ui/ItemCheck.vue';
 export default {
   props: {
-    plano: Object,
+    plan: Object,
   },
-  components: { Check }
+  components: { ItemCheck }
 
 };
 </script>
@@ -57,19 +57,10 @@ export default {
   font-size: 0.9rem;
 }
 
-.item-feature {
-  display: flex;
-  justify-content: start;
-  gap: 5px;
-  margin: 5px 0px;
-  color: white;
-}
-
 .price {
   font-weight: normal;
   font-size: 1rem;
   color: white;
-  margin: 10px 0px;
 }
 
 .price span {
@@ -77,21 +68,9 @@ export default {
   font-size: 3rem;
 }
 
-.full-width-divider {
-  width: 100%;
-  align-self: stretch;
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 8px 0;
-  display: block;
-  flex: 0 0 auto;
-}
-
-li::marker {
-  content: "";
-}
-.button-plan{
+.button-plan {
   font-weight: bold;
   width: 100%;
+  color: var(--simpliz-primary);
 }
 </style>
