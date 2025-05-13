@@ -45,7 +45,10 @@
 
     <v-main class="background">
       <v-container fluid class="container">
+        <transition name="fade-slide" mode="out-in">
         <router-view />
+      </transition>
+
       </v-container>
     </v-main>
 
@@ -83,9 +86,37 @@ export default {
 
 .container {
   max-width: 1300px;
+  height: 100%;
 }
 
 .item-menu {
   font-weight: 700;
 }
+
+/* Transicoes de tela */
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.fade-slide-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-slide-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
 </style>
