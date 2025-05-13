@@ -23,10 +23,10 @@
                     <span>{{ formatNewPrice() }}</span>
                 </div>
                 <div class="buttons">
-                    <v-btn color="white" class="capitalize primary button" @click="selectPlan(true)">
+                    <v-btn color="white" class="text-capitalize primary button" @click="selectPlan(true)">
                         Contratar
                     </v-btn>
-                    <v-btn color="white" class="capitalize button" @click="selectPlan(false)">
+                    <v-btn color="white" class="text-capitalize button" @click="selectPlan(false)">
                         Agora não
                     </v-btn>
                 </div>
