@@ -1,0 +1,35 @@
+//Menu
+.v-toolbar__content {
+    gap: 10px;
+}
+
+// Carousel
+
+.v-window__prev {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.v-carousel:hover .v-window__prev {
+    opacity: 1;
+    visibility: visible;
+}
+
+.v-window__next {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.v-carousel:hover .v-window__next {
+    opacity: 1;
+    visibility: visible;
+}
+
+// Grids
+
+.row {
+    margin: 0px !important;
+    flex: unset !important;
+}

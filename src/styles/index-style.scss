@@ -1,0 +1,11 @@
+html {
+    overflow: auto !important;
+}
+
+.button {
+    font-weight: 900 !important;
+}
+
+div:has(> .sub-containe) {
+    padding: 0px !important;
+}

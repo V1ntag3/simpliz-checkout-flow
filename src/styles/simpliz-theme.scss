@@ -8,6 +8,10 @@
     font-display: swap;
 }
 
+* {
+    font-family: var(--simpliz-font);
+}
+
 :root {
     --simpliz-primary: #260D33;
     --simpliz-secondary: #106B87;
@@ -24,53 +28,4 @@
     --simpliz-font: 'Open Sans', sans-serif;
     --simpliz-title-font: 'Porter Sans Block', sans-serif;
 
-}
-
-* {
-    font-family: var(--simpliz-font);
-}
-
-.lowercase {
-    text-transform: lowercase !important;
-}
-
-.capitalize {
-    text-transform: capitalize !important;
-}
-
-
-//Menu
-.v-toolbar__content {
-    gap: 10px;
-}
-
-// Carousel
-
-.v-window__prev {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.v-carousel:hover .v-window__prev {
-    opacity: 1;
-    visibility: visible;
-}
-
-.v-window__next {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.v-carousel:hover .v-window__next {
-    opacity: 1;
-    visibility: visible;
-}
-
-.button {
-    font-weight: 900 !important;
-}
-.row{
-    margin: 0px !important;
 }
