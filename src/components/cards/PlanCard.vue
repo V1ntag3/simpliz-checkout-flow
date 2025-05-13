@@ -8,7 +8,7 @@
 
 
       <v-card-text>
-        <div class="price">R$ <span>{{ plan.preco }}</span>/mês</div>
+        <div class="price">R$ <span>{{ plan.price }}</span>/mês</div>
         <ul class="pa-0">
           <ItemCheck v-for="(benefit, index) in plan.benefits" :key="index" :description="benefit"
             :max-array="plan.benefits.length" :index="index" />
@@ -17,7 +17,7 @@
     </div>
 
     <v-card-actions>
-      <v-btn color="white" class="capitalize button-plan" @click="$emit('select')">
+      <v-btn v-if="$listeners.select" color="white" class="text-capitalize button-plan" @click="$emit('select')">
         Contratar
       </v-btn>
     </v-card-actions>

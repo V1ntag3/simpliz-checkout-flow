@@ -37,26 +37,30 @@ export default {
                 {
                     name: "Prata",
                     description: "Ideal para quem está começando",
-                    preco: 20,
+                    price: 20,
                     paymentPlans: [
                         {
+                            id:0,
                             title: "Plano Mensal",
-                            valueDiscount: null,
+                            priceDiscount: null,
                             months: 1
                         },
                         {
+                            id:1,
                             title: "Plano Anual",
-                            valueDiscount: 18,
+                            priceDiscount: 18,
                             months: 12
                         },
                         {
+                            id:2,
                             title: "Plano 2 anos",
-                            valueDiscount: 16,
+                            priceDiscount: 16,
                             months: 24
                         },
                         {
+                            id:3,
                             title: "Plano 3 anos",
-                            valueDiscount: 14,
+                            priceDiscount: 14,
                             months: 36
                         }
                     ],
@@ -68,27 +72,31 @@ export default {
                 },
                 {
                     name: "Ouro",
-                    preco: 60,
+                    price: 60,
                     description: "Para equipes que precisam de mais recursos",
                     paymentPlans: [
                         {
+                            id:0,
                             title: "Plano Mensal",
-                            valueDiscount: null,
+                            priceDiscount: null,
                             months: 1
                         },
                         {
+                            id:1,
                             title: "Plano Anual",
-                            valueDiscount: 50,
+                            priceDiscount: 50,
                             months: 12
                         },
                         {
+                            id:2,
                             title: "Plano 2 anos",
-                            valueDiscount: 40,
+                            priceDiscount: 40,
                             months: 24
                         },
                         {
+                            id:3,
                             title: "Plano 3 anos",
-                            valueDiscount: 30,
+                            priceDiscount: 30,
                             months: 36
                         }
                     ],
@@ -102,27 +110,19 @@ export default {
                 {
                     name: "Diamante",
                     description: "Soluções personalizadas para grandes equipes",
-                    preco: 100,
+                    price: 100,
                     paymentPlans: [
                         {
+                            id:0,
                             title: "Plano Mensal",
-                            valueDiscount: null,
+                            priceDiscount: null,
                             months: 1
                         },
                         {
+                            id:1,
                             title: "Plano Anual",
-                            valueDiscount: 80,
+                            priceDiscount: 80,
                             months: 12
-                        },
-                        {
-                            title: "Plano 2 anos",
-                            valueDiscount: 70,
-                            months: 24
-                        },
-                        {
-                            title: "Plano 3 anos",
-                            valueDiscount: 60,
-                            months: 36
                         }
                     ],
                     benefits: [
