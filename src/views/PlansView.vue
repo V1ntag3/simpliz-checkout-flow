@@ -1,11 +1,9 @@
 <template>
-    <v-col style="display: flex; flex-direction: column; gap: 20px;">
+    <v-col class="d-flex flex-column gap-4">
         <TitlePage title="Plans Disponíveis" />
-
         <v-row>
             <v-row class="mx-3">
-                <v-col style="display: flex; flex-direction:column; justify-content: center;padding-right: 10px;" class="" cols="12" md="4"
-                    lg="3">
+                <v-col class="d-flex flex-column justify-lg-center pr-2" cols="12" md="4" lg="3">
                     <h1 class="title-text">Planos sob medida para seu crescimento</h1>
                     <h3 class="title-description">Oferecemos plans flexíveis que se adaptam às suas necessidades –
                         desde
@@ -40,25 +38,25 @@ export default {
                     price: 20,
                     paymentPlans: [
                         {
-                            id:0,
+                            id: 0,
                             title: "Plano Mensal",
                             priceDiscount: null,
                             months: 1
                         },
                         {
-                            id:1,
+                            id: 1,
                             title: "Plano Anual",
                             priceDiscount: 18,
                             months: 12
                         },
                         {
-                            id:2,
+                            id: 2,
                             title: "Plano 2 anos",
                             priceDiscount: 16,
                             months: 24
                         },
                         {
-                            id:3,
+                            id: 3,
                             title: "Plano 3 anos",
                             priceDiscount: 14,
                             months: 36
@@ -76,25 +74,25 @@ export default {
                     description: "Para equipes que precisam de mais recursos",
                     paymentPlans: [
                         {
-                            id:0,
+                            id: 0,
                             title: "Plano Mensal",
                             priceDiscount: null,
                             months: 1
                         },
                         {
-                            id:1,
+                            id: 1,
                             title: "Plano Anual",
                             priceDiscount: 50,
                             months: 12
                         },
                         {
-                            id:2,
+                            id: 2,
                             title: "Plano 2 anos",
                             priceDiscount: 40,
                             months: 24
                         },
                         {
-                            id:3,
+                            id: 3,
                             title: "Plano 3 anos",
                             priceDiscount: 30,
                             months: 36
@@ -113,13 +111,13 @@ export default {
                     price: 100,
                     paymentPlans: [
                         {
-                            id:0,
+                            id: 0,
                             title: "Plano Mensal",
                             priceDiscount: null,
                             months: 1
                         },
                         {
-                            id:1,
+                            id: 1,
                             title: "Plano Anual",
                             priceDiscount: 80,
                             months: 12
@@ -146,12 +144,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.description-page {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
 
 .title-text {
     font-size: 1.6rem;
@@ -184,5 +176,6 @@ export default {
     .carousel {
         display: none;
     }
+   
 }
 </style>
