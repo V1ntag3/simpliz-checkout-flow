@@ -1,11 +1,10 @@
 <template>
   <v-card outlined color="primary" style="border-color: white !important;" class="card" dark>
     <div>
-      <div sty>
+      <div>
         <v-card-title class="title">{{ plan.name }}</v-card-title>
         <v-card-subtitle class="subtitle">{{ plan.description }}</v-card-subtitle>
       </div>
-
 
       <v-card-text>
         <div class="price">R$ <span>{{ plan.price }}</span>/mês</div>

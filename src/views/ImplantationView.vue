@@ -4,7 +4,7 @@
 
         <v-row class="container">
             <v-col cols="12" md="6">
-                <img :src="tasksImg" alt="Tasks" />
+                <img class="w-100" :src="tasksImg" alt="Tasks" />
             </v-col>
 
             <v-col class="content" cols="12" md="5">
@@ -61,7 +61,11 @@ export default {
     },
     methods: {
         selectPlan(implantation) {
-            this.$store.commit('setImplantation', implantation)
+            var implantationObject = this.implantation
+
+            implantationObject['selection'] = implantation
+
+            this.$store.commit('setImplantation',implantationObject)
             this.$router.push({ name: "CartView" });
         },
         formatOldPrice() {
@@ -82,11 +86,6 @@ export default {
     flex-direction: row;
     gap: 20px;
     justify-content: space-around;
-}
-
-img {
-    width: 100%;
-
 }
 
 .content {

@@ -8,15 +8,14 @@
         <transition name="fade-slide" mode="out-in">
           <router-view />
         </transition>
-
       </v-container>
     </v-main>
 
-    <v-footer app color="primary" dark>
+    <!-- <v-footer app color="primary" dark>
       <v-col class="text-center white--text">
         © {{ new Date().getFullYear() }} Simpliz. Todos os direitos reservados.
       </v-col>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 
