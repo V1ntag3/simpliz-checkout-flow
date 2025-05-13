@@ -12,7 +12,7 @@ export const mutations = {
         if (!state.planSelected) {
             state.planSelected = {};
         }
-        state.planSelected.implantation = implantation;
+        state.planSelected.implantation = implantation
     }
 };
 
