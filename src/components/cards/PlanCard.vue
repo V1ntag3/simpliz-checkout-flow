@@ -60,6 +60,7 @@ export default {
   font-weight: normal;
   font-size: 1rem;
   color: white;
+  margin-bottom: 5px;
 }
 
 .price span {

@@ -41,5 +41,8 @@ export default {
     .title-page {
         font-size: 1.5rem;
     }
+    .title-page-container{
+    margin-bottom: 20px;
+}
 }
 </style>
