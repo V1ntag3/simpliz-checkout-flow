@@ -15,9 +15,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.title-page-container{
+.title-page-container {
     margin-bottom: 50px;
 }
+
 .title-page {
     font-family: var(--simpliz-title-font);
     color: white;
@@ -41,8 +42,9 @@ export default {
     .title-page {
         font-size: 1.5rem;
     }
-    .title-page-container{
-    margin-bottom: 20px;
-}
+
+    .title-page-container {
+        margin-bottom: 20px;
+    }
 }
 </style>

@@ -9,7 +9,7 @@ import FinishView from '@/views/FinishView.vue'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history', // evita # na URL
+    mode: 'history',
     routes: [
         {
             path: '/plans',

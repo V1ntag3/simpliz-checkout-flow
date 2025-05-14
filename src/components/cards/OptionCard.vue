@@ -9,7 +9,7 @@
                 <div class="ml-3">
                     <div class="label">{{ title }}</div>
                     <div class="price">{{ priceDiscount ? formatPrice(priceDiscount) :
-                        formatPrice(priceNormal) }}{{ isMonth ? "/mês" : ""}}</div>
+                        formatPrice(priceNormal) }}{{ isMonth ? "/mês" : "" }}</div>
                 </div>
             </v-row>
 

@@ -3,17 +3,20 @@
         <TitlePage title="Planos Disponíveis" />
         <v-row>
             <v-row class="mx-3">
-                <v-col class="d-flex flex-column justify-lg-center pr-2 animate__animated animate__fadeInLeft" cols="12" md="4" lg="3">
+                <v-col class="d-flex flex-column justify-lg-center pr-2 animate__animated animate__fadeInLeft" cols="12"
+                    md="4" lg="3">
                     <h1 class="title-text">Planos sob medida para seu crescimento</h1>
                     <h3 class="title-description">Oferecemos plans flexíveis que se adaptam às suas necessidades –
                         desde
                         quem está começando até empresas em expansão. Sem taxas escondidas, sem complicações.</h3>
                 </v-col>
-                <v-col class="cards animate__animated animate__fadeInRight" cols="12" md="4" lg="3" v-for="plan in plans" :key="plan.name">
+                <v-col class="cards animate__animated animate__fadeInRight" cols="12" md="4" lg="3"
+                    v-for="plan in plans" :key="plan.name">
                     <PlanCard :plan="plan" @select="selectPlan(plan)" />
                 </v-col>
             </v-row>
-            <v-carousel class="mx-3 my-3  carousel animate__animated animate__fadeInRight" show-arrows-hover cycle hide-delimiters>
+            <v-carousel class="mx-3 my-3  carousel animate__animated animate__fadeInRight" show-arrows-hover cycle
+                hide-delimiters>
                 <v-carousel-item v-for="plan in plans" :key="plan.name">
                     <PlanCard :plan="plan" @select="selectPlan(plan)" />
                 </v-carousel-item>

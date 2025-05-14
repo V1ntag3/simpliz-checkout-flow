@@ -304,8 +304,7 @@ export default {
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    align-items: start; justify-content: start;
     gap: 10px;
 }
 
