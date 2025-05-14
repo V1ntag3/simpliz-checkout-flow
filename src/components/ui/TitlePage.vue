@@ -1,5 +1,5 @@
 <template>
-    <v-col class="title-page-container">
+    <v-col class="title-page-container animate__animated animate__fadeInDown">
         <h1 class="title-page">{{ title }}</h1>
         <hr class="mx-9">
     </v-col>
