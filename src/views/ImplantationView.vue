@@ -3,11 +3,11 @@
         <TitlePage title="Pronto para aproveitar ao máximo?" />
 
         <v-row class="container">
-            <v-col cols="12" md="6">
+            <v-col class="animate__animated animate__fadeInLeft" cols="12" md="6">
                 <img class="w-100" :src="tasksImg" alt="Tasks" />
             </v-col>
 
-            <v-col class="content" cols="12" md="5">
+            <v-col class="content animate__animated animate__fadeInRight" cols="12" md="5">
                 <div class="text-page">
                     Nossa equipe ajuda você a configurar tudo de forma rápida e sem complicações. Aproveite ao máximo
                     sua assinatura desde o primeiro dia com o serviço de implantação.
@@ -23,10 +23,12 @@
                     <span>{{ formatNewPrice() }}</span>
                 </div>
                 <div class="buttons">
-                    <v-btn color="white" class="text-capitalize primary button" @click="selectPlan(true)">
+                    <v-btn large color="white" class="text-capitalize font-weight-bold primary button"
+                        @click="selectPlan(true)">
                         Contratar
                     </v-btn>
-                    <v-btn color="white" class="text-capitalize button" @click="selectPlan(false)">
+                    <v-btn large color="white" class="text-capitalize font-weight-bold button"
+                        @click="selectPlan(false)">
                         Agora não
                     </v-btn>
                 </div>
@@ -55,7 +57,7 @@ export default {
     },
     mounted() {
         var planSelected = this.$store.state.planSelected
-        if (!planSelected|| Object.keys(planSelected).length === 0) {
+        if (!planSelected || Object.keys(planSelected).length === 0) {
             this.$router.push({ name: 'PlansView' });
         }
     },
@@ -65,7 +67,7 @@ export default {
 
             implantationObject['selection'] = implantation
 
-            this.$store.commit('setImplantation',implantationObject)
+            this.$store.commit('setImplantation', implantationObject)
             this.$router.push({ name: "CartView" });
         },
         formatOldPrice() {
@@ -106,13 +108,13 @@ export default {
 }
 
 .values span {
-    font-family: var(--simpliz-title-font);
+    font-weight: bold;
     color: white;
-    font-size: 1.7rem;
+    font-size: 2rem;
 }
 
 .values span:first-of-type {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-decoration: line-through;
 }
 

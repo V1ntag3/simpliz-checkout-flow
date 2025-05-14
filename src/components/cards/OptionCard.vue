@@ -48,7 +48,6 @@ export default {
 
 <style scoped>
 .plan-card {
-    border-radius: 12px;
     padding: 16px;
     cursor: pointer;
     transition: 0.3s ease;

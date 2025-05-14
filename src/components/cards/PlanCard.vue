@@ -42,7 +42,6 @@ export default {
   height: 100%;
   padding: 10px 15px;
   border: 2px solid;
-  border-radius: 15px;
   min-width: 250px;
 }
 
