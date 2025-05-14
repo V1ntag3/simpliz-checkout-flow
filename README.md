@@ -2,7 +2,16 @@
 
 Projeto desenvolvido como parte de um processo seletivo, com o objetivo de demonstrar um fluxo completo de checkout para a contratação de um produto SaaS.
 
----
+
+## 🚨 Observação Importante
+
+A tela inicial do projeto (rota `/`) está em branco.  
+Para iniciar o fluxo corretamente, acesse diretamente a URL:
+
+```
+https://simplz.netlify.app/plans
+```
+
 
 ## 🛠️ Project Setup
 
@@ -13,6 +22,7 @@ npm install
 ```
 
 ### 🔧 Ambiente de Desenvolvimento
+---
 
 Compila e recarrega automaticamente o projeto para desenvolvimento:
 
@@ -21,6 +31,7 @@ npm run serve
 ```
 
 ### 🚀 Build para Produção
+---
 
 Compila e minifica os arquivos para uso em produção:
 
@@ -29,6 +40,7 @@ npm run build
 ```
 
 ### 🧹 Lint e Correções
+---
 
 Analisa e corrige automaticamente problemas de lint no código:
 
@@ -36,7 +48,6 @@ Analisa e corrige automaticamente problemas de lint no código:
 npm run lint
 ```
 
----
 
 ## 📋 Sobre o Projeto
 
@@ -74,14 +85,7 @@ Após a finalização do pagamento, o cliente é redirecionado para uma tela de 
 
 ---
 
-## 🚨 Observação Importante
 
-A tela inicial do projeto (rota `/`) está em branco.  
-Para iniciar o fluxo corretamente, acesse diretamente a URL:
-
-```
-http://localhost:8080/plans
-```
 
 Ou, se estiver navegando pela interface, utilize o menu e selecione a opção **"Preços"** para ser redirecionado à tela de seleção de planos.
 
