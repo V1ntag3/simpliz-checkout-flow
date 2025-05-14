@@ -1,15 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
-
 @font-face {
-    font-family: 'Porter Sans Block';
-    src: url('@/assets/fonts/PorterSansBlock-Regular.woff') format('woff');
+    font-family: 'Summit Medium';
+    src: url('@/assets/fonts/SummitMedium-Inline.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-}
-
-* {
-    font-family: var(--simpliz-font);
 }
 
 :root {
@@ -26,6 +20,9 @@
     --simpliz-text-dark: #212121;
 
     --simpliz-font: 'Open Sans', sans-serif;
-    --simpliz-title-font: 'Porter Sans Block', sans-serif;
+    --simpliz-title-font: 'Summit Medium', sans-serif;
+}
 
+* {
+    font-family: var(--simpliz-font);
 }

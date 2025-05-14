@@ -34,18 +34,48 @@
     flex: unset !important;
 }
 
-.ga-2{
+.ga-2 {
     gap: 8px;
-}	
-
-.w-100{
-    width: 100% ;
 }
 
-.h-100{
-    height: 100% ;
+.w-100 {
+    width: 100%;
 }
 
-.ga-4{
+.h-100 {
+    height: 100%;
+}
+
+.ga-4 {
     gap: 16px;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-info{
+    color: var(--simpliz-info);
+}
+
+.text-success {
+    color: var(--simpliz-success);
+}
+
+.text-primary * {
+    color: var(--simpliz-primary);
+}
+
+.v-text-field__details {
+    padding-left: 0px !important;
+}
+
+.v-messages {
+    min-height: 0px !important;
+    padding-left: 5px !important;
+}
+
+.v-text-field__details {
+    min-height: 0px !important;
+    margin-bottom: 8px !important;
 }
