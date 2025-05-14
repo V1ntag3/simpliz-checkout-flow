@@ -1,8 +1,9 @@
+export default {
+  buildModules: [
+    '@nuxtjs/vuetify'
+  ],
 
-export const buildModules = [
-    // Simple usage
-    '@nuxtjs/vuetify',
-
-    // With options
-    ['@nuxtjs/vuetify', { /* module options */ }]
-];
+  plugins: [
+    { src: '~/plugins/persistedState.client.js', mode: 'client' }
+  ]
+};
