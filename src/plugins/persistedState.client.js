@@ -3,7 +3,7 @@ import createPersistedState from 'vuex-persistedstate';
 export default ({ store }) => {
     createPersistedState({
         key: 'simpliz',
-        paths: ['planSelected', 'orderNumber'],
+        paths: ['planSelected', 'orderNumber', 'payment'],
         storage: window.localStorage,
     })(store);
     store.subscribe((mutation, state) => {

@@ -42,6 +42,7 @@ import TitlePage from "@/components/ui/TitlePage.vue";
 import ItemCheck from "@/components/ui/ItemCheck.vue";
 import { BRLValueformat } from "@/utils";
 import tasksImg from '@/assets/imgs/tasks.png';
+import { checkPlanOrRedirect } from '@/helpers/planVerify'
 
 export default {
     name: "PlansView",
@@ -56,10 +57,11 @@ export default {
         };
     },
     mounted() {
-        var planSelected = this.$store.state.planSelected
-        if (!planSelected || Object.keys(planSelected).length === 0) {
-            this.$router.push({ name: 'PlansView' });
-        }
+        checkPlanOrRedirect({
+            store: this.$store.state.planSelected,
+            router: this.$router,
+            toast: this.$toast,
+        })
     },
     methods: {
         selectPlan(implantation) {
