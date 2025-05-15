@@ -16,7 +16,7 @@
     </div>
 
     <v-card-actions>
-      <v-btn v-if="$listeners.select" color="white" class="text-capitalize button-plan" @click="$emit('select')">
+      <v-btn v-if="$listeners.select" color="white" class="capitalize-first button-plan" @click="$emit('select')">
         Contratar
       </v-btn>
     </v-card-actions>

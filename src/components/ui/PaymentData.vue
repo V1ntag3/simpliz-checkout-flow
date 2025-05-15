@@ -14,7 +14,7 @@
         <v-divider class="my-2 payment-bar"></v-divider>
 
         <v-row class="justify-end">
-            <v-btn x-large color="primary" class="mt-4 text-capitalize font-weight-bold button-finish"
+            <v-btn x-large color="primary" class="mt-4 capitalize-first font-weight-bold button-finish"
                 :loading="loading" :disabled="loading" @click="finishCheckout">
                 Finalizar
             </v-btn>
