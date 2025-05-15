@@ -3,8 +3,8 @@
 
     <MenuBar />
 
-    <v-main class="background">
-      <v-container fluid class="container">
+    <v-main id="simpliz-bg" class="background">
+      <v-container id="container-layout" fluid class="container">
         <transition name="fade-slide" mode="out-in">
           <router-view />
         </transition>
@@ -32,12 +32,13 @@ export default {
   }
 };
 </script>
-
-<style scoped>
+<style>
 .container {
   max-width: 1300px;
   height: 100%;
 }
+</style>
+<style scoped>
 
 /* Transicoes de tela */
 

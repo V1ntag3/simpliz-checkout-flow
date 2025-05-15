@@ -5,12 +5,18 @@ import ImplantationView from '@/views/ImplantationView.vue'
 import CartView from '@/views/CartView.vue'
 import PixView from '@/views/PixView.vue'
 import FinishView from '@/views/FinishView.vue'
+import HomeView from '@/views/HomeView.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     mode: 'history',
     routes: [
+        {
+            path: '/',
+            name: 'HomeView',
+            component: HomeView
+        },
         {
             path: '/plans',
             name: 'PlansView',
@@ -38,3 +44,17 @@ export default new Router({
         }
     ]
 })
+
+router.beforeEach((to, from, next) => {
+    setTimeout(() => {
+        if (to.name === 'HomeView') {
+            document.body.classList.add('landing-container');
+        } else {
+            document.body.classList.remove('landing-container');
+        }
+    }, 50);
+
+    next();
+});
+
+export default router;
