@@ -2,7 +2,8 @@
   <v-container style="max-width: 400px;">
     <v-row justify="center" align="center">
       <v-col cols="12">
-        <v-card v-if="Object.keys(payment).length !== 0" class="pa-3 receipt-border animate__animated animate__fadeInDown" outlined>
+        <v-card v-if="hasPayment"
+          class="pa-3 receipt-border animate__animated animate__fadeInDown" outlined>
           <v-row>
             <v-col cols="12" class="text-center pa-0">
               <h1>Pedido Finalizado</h1>
@@ -11,7 +12,7 @@
 
           <v-row>
             <v-col cols="12" class="text-center pa-0 py-1">
-              <img style="max-width: 200px;" :src="status ? finishConfirm : finishPending" />
+              <img class="my-2" style="max-width: 200px;" :src="status ? finishConfirm : finishPending" />
             </v-col>
           </v-row>
 
@@ -118,11 +119,16 @@ export default {
       planSelected: plan,
       name: payment.name,
       email: payment.email,
+      payment
     };
   },
   computed: {
+    hasPayment() {
+    return this.payment && Object.keys(this.payment).length !== 0;
+  },
     status() {
-      return this.$store.state.payment?.method !== 'boleto'
+      console.log(this.$store.state.payment)
+      return this.payment.method !== 'boleto'
     }
   },
   methods: {

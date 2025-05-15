@@ -74,7 +74,7 @@
                                     </v-col>
 
                                     <v-col class="pa-0 px-1" cols="6" md="6">
-                                        <v-text-field v-mask="'###'" :error="errors.cardCvv"
+                                        <v-text-field inputmode="numeric" v-mask="'###'" :error="errors.cardCvv"
                                             :error-messages="errors.cardCvv ? 'Número CVV do cartão obrigatório' : ''"
                                             v-model="card.cvv" label="CVV" outlined></v-text-field>
                                     </v-col>
@@ -311,9 +311,11 @@ export default {
                     })
 
                     if (this.methodSelected === 'credito') {
+                        this.$toast?.success("Pedido pago com sucesso!");
                         this.$router.replace({ name: 'FinishView' })
                     }
                     if (this.methodSelected === 'boleto') {
+                        this.$toast?.warning("Pedido aguardando pagamento!");
                         this.$router.replace({ name: 'FinishView' })
                     }
                     if (this.methodSelected === 'pix') {

@@ -80,7 +80,7 @@ export default {
             return BRLValueformat(price);
         },
         confirmOrder() {
-            this.$toast?.success("Pedido confirmado com sucesso!");
+            this.$toast?.success("Pedido pago com sucesso!");
             this.$router.push({ name: 'FinishView' });
         },
         timeEnd(){
