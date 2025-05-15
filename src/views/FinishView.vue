@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container style="max-width: 400px;">
     <v-row justify="center" align="center">
-      <v-col cols="12" md="8">
+      <v-col cols="12">
         <v-card class="pa-3 receipt-border" outlined>
           <v-row>
             <v-col cols="12" class="text-center pa-0">
@@ -10,7 +10,7 @@
           </v-row>
 
           <v-row>
-            <v-col cols="12" class="text-center pa-0">
+            <v-col cols="12" class="text-center pa-0 py-1">
               <img style="max-width: 200px;" :src="status ? finishConfirm : finishPending" />
             </v-col>
           </v-row>
@@ -61,10 +61,10 @@
               </v-row>
 
               <v-row class="font-weight-normal ">
-                <v-col cols="6" class="pa-0">
+                <v-col cols="2" class="pa-0">
                   <span>Email:</span>
                 </v-col>
-                <v-col cols="6" class="text-right pa-0 font-weight-bold">
+                <v-col cols="10" class="text-right pa-0 font-weight-bold">
                   <span>{{ email }}</span>
                 </v-col>
               </v-row>
@@ -134,9 +134,9 @@ export default {
       router: this.$router,
       toast: this.$toast,
     }),
-    setTimeout(() => {
-      this.$store.commit('resetState')
-    }, 400)
+      setTimeout(() => {
+        this.$store.commit('resetState')
+      }, 400)
   }
 };
 </script>

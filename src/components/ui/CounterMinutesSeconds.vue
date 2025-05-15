@@ -33,7 +33,7 @@ export default {
                 this.timeInSeconds--;
             } else {
                 clearInterval(this.interval);
-                this.$emit("finished"); // Emitir evento quando acabar, se quiser
+                this.$emit("finished");
             }
         }, 1000);
     },
@@ -42,6 +42,3 @@ export default {
     }
 };
 </script>
-
-
-<style lang="css" scoped></style>

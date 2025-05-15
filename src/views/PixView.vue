@@ -96,9 +96,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.text-order {
-    font-size: 1.0rem;
-}
 
 .plan-block {
     background-color: white;
@@ -107,11 +104,5 @@ export default {
     flex-direction: column;
     align-items: start;
     justify-content: start;
-}
-
-@media (max-width:600px) {
-    .text-order {
-        font-size: 0.8rem;
-    }
 }
 </style>

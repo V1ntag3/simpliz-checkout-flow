@@ -102,6 +102,7 @@ export default {
         background-color: white;
         width: 100%;
         padding: 13px 15px;
+        padding-bottom: 20px;
         left: 0px;
         border-radius: 15px 15px 0px 0px;
     }
