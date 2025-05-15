@@ -5,13 +5,12 @@ Projeto desenvolvido como parte de um processo seletivo, com o objetivo de demon
 
 ## 🚨 Observação Importante
 
-A tela inicial do projeto (rota `/`) está em branco.  
 Para iniciar o fluxo corretamente, acesse diretamente a URL:
 
 ```
-https://simplz.netlify.app/plans
+https://simpliz.netlify.app/plans
 ```
-
+Ou, se estiver navegando pela interface, utilize o menu e selecione a opção **"Preços"** para ser redirecionado à tela de seleção de planos.
 
 ## 🛠️ Project Setup
 
@@ -82,14 +81,6 @@ Para fins de demonstração, após **30 segundos**, o pagamento é automaticamen
 
 **4. Confirmação de Pagamento**  
 Após a finalização do pagamento, o cliente é redirecionado para uma tela de confirmação, encerrando o fluxo de compra.
-
----
-
-
-
-Ou, se estiver navegando pela interface, utilize o menu e selecione a opção **"Preços"** para ser redirecionado à tela de seleção de planos.
-
----
 
 ## ✅ Tecnologias Utilizadas
 

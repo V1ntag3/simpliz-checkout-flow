@@ -15,13 +15,3 @@ div:has(> .sub-containe) {
 .capitalize-first {
     text-transform: math-auto !important;
 }
-
-body.landing-container #container-layout {
-    max-width: 100% !important;
-    padding: 0 !important;
-}
-
-body.landing-container #container {
-    max-width: 100% !important;
-    padding: 0 !important;
-}

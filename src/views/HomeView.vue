@@ -31,6 +31,25 @@ export default {
   },
 };
 </script>
+<style>
+body.landing-container #container-layout {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+}
+
+body.landing-container .container {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.container {
+  max-width: 1300px;
+  height: 100%;
+}
+</style>
 
 <style scoped>
 .landing-container {

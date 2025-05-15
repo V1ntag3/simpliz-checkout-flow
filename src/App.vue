@@ -32,14 +32,7 @@ export default {
   }
 };
 </script>
-<style>
-.container {
-  max-width: 1300px;
-  height: 100%;
-}
-</style>
 <style scoped>
-
 /* Transicoes de tela */
 
 .fade-slide-enter-active,
