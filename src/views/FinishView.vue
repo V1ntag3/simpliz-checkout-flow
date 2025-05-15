@@ -2,7 +2,7 @@
   <v-container style="max-width: 400px;">
     <v-row justify="center" align="center">
       <v-col cols="12">
-        <v-card class="pa-3 receipt-border" outlined>
+        <v-card class="pa-3 receipt-border animate__animated animate__fadeInDown" outlined>
           <v-row>
             <v-col cols="12" class="text-center pa-0">
               <h1>Pedido Finalizado</h1>
@@ -52,10 +52,10 @@
               </v-row>
 
               <v-row class="font-weight-normal">
-                <v-col cols="6" class="pa-0">
+                <v-col cols="2" class="pa-0">
                   <span>Nome:</span>
                 </v-col>
-                <v-col cols="6" class="text-right pa-0 font-weight-bold">
+                <v-col cols="10" class="text-right pa-0 font-weight-bold">
                   <span>{{ name }}</span>
                 </v-col>
               </v-row>
