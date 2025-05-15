@@ -160,7 +160,7 @@ export default {
     font-weight: normal;
 }
 
-@media (max-width:576px) {
+@media (max-width:600px) {
     .carousel {
         display: block;
     }
@@ -170,7 +170,7 @@ export default {
     }
 }
 
-@media (min-width:576px) {
+@media (min-width:600px) {
     .cards {
         display: block;
     }

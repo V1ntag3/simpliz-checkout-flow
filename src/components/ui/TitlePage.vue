@@ -38,7 +38,7 @@ export default {
     }
 }
 
-@media (max-width:576px) {
+@media (max-width:600px) {
     .title-page {
         font-size: 1.5rem;
     }
