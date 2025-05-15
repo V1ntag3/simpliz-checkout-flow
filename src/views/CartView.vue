@@ -1,12 +1,14 @@
 <template>
     <div>
 
-        <v-row class="px-2 py-1 font-weight-bold text-white text-h5">
-            Checkout
+        <v-row class="px-0 px-sm-2 py-2 align-center ga-2 animate__animated animate__fadeInDown">
+            <ArrowLeft @click="goBack()" style="cursor: pointer;" color="white" /> <span
+                class="font-weight-bold text-white text-h5 ">Checkout</span>
         </v-row>
-        <v-row class="sub-container">
+        <v-row v-if="planSelected" class="sub-container">
 
-            <v-col cols="12" sm="6" class="flex-column d-flex ga-2 py-0 resume-block">
+            <v-col cols="12" sm="6"
+                class="animate__animated animate__fadeInLeft flex-column d-flex ga-2 py-0 resume-block pb-2 pb-sm-0">
                 <div>
                     <PlanCard :plan="planSelected" />
                 </div>
@@ -27,7 +29,7 @@
                     @action="implantation.selection = !implantation.selection" :is-month="false" />
             </v-col>
 
-            <v-col cols="12" sm="6" class="py-0 payment-block">
+            <v-col cols="12" sm="6" class="py-0 payment-block animate__animated animate__fadeInRight">
                 <v-card class="w-100 plan-block">
 
                     <v-row class="text-h6 font-weight-bold">Contato</v-row>
@@ -53,19 +55,20 @@
                             <div v-if="methodSelected === 'credito'">
                                 <v-row>
                                     <v-col class="pa-0 px-1" cols="12">
-                                        <v-text-field v-mask="'#### #### #### ####'" v-model="card.number"
-                                            label="Número do Cartão" outlined :error="errors.cardNumber"
+                                        <v-text-field inputmode="numeric" v-mask="'#### #### #### ####'"
+                                            v-model="card.number" label="Número do Cartão" outlined
+                                            :error="errors.cardNumber"
                                             :error-messages="errors.cardNumber ? 'Número do cartão obrigatório' : ''" />
                                     </v-col>
 
                                     <v-col class="pa-0 px-1" cols="12">
-                                        <v-text-field v-mask="'##/##'" v-model="card.name" label="Nome no Cartão"
-                                            outlined :error="errors.cardName"
+                                        <v-text-field v-model="card.name" label="Nome no Cartão" outlined
+                                            :error="errors.cardName"
                                             :error-messages="errors.cardName ? 'Nome cadastrado no cartão obrigatório' : ''"></v-text-field>
                                     </v-col>
 
                                     <v-col class="pa-0 px-1" cols="6" md="6">
-                                        <v-text-field :error="errors.cardValidity"
+                                        <v-text-field v-mask="'##/##'" inputmode="numeric" :error="errors.cardValidity"
                                             :error-messages="errors.cardValidity ? 'Validade do cartão obrigatório' : ''"
                                             v-model="card.validity" label="Validade (MM/AA)" outlined></v-text-field>
                                     </v-col>
@@ -73,7 +76,7 @@
                                     <v-col class="pa-0 px-1" cols="6" md="6">
                                         <v-text-field v-mask="'###'" :error="errors.cardCvv"
                                             :error-messages="errors.cardCvv ? 'Número CVV do cartão obrigatório' : ''"
-                                            v-model="card.cvv" label="CVV" type="password" outlined></v-text-field>
+                                            v-model="card.cvv" label="CVV" outlined></v-text-field>
                                     </v-col>
                                 </v-row>
                             </div>
@@ -116,23 +119,8 @@
 
                                 </v-col>
                             </v-row>
-                            <hr class="primary w-100 my-4" />
-                            <v-row class="w-100 ">
-                                <v-col class="pa-0 text-h5 font-weight-bold">
-                                    Total a pagar
-                                </v-col>
-                                <v-col class="text-end pa-0 text-h5 font-weight-bold " dark>
-                                    {{ formatPrice(toPayTotal) }}
-                                </v-col>
-                            </v-row>
-
-                            <v-row class="justify-end">
-                                <v-btn x-large color="primary"
-                                    class="mt-4 text-capitalize font-weight-bold button-finish" :loading="loading"
-                                    :disabled="loading" @click="finishCheckout">
-                                    Finalizar
-                                </v-btn>
-                            </v-row>
+                            <payment-data :toPayTotal="toPayTotal" :loading="loading" :customClass="'payment-desktop'"
+                                @finish="finishCheckout" />
 
                         </v-col>
                     </v-row>
@@ -140,30 +128,53 @@
 
                 </v-card>
             </v-col>
-
+            <payment-data :toPayTotal="toPayTotal" :loading="loading"
+                :customClass="'payment-mobile  animate__animated animate__fadeInUp'" @finish="finishCheckout" />
         </v-row>
+        <v-row v-else class="sub-container mt-6  animate__animated animate__fadeInDown">
+            <v-col cols="12" class="text-center">
+                <img :src="emptyImg" class="w-100" style="max-width: 400px;" />
+                <v-row class="text-h6 w-100 mt-6">
+                    <span class="w-100 text-white text-center font-weight-bold">Você ainda não selecionou nenhum
+                        plano</span>
+                </v-row>
+            </v-col>
+        </v-row>
+
+
     </div>
 </template>
 
 <script>
-import { BRLValueformat, Valueformat } from "@/utils";
-import tasksImg from '@/assets/imgs/tasks.png';
+import { ArrowLeft } from 'lucide-vue';
+
+import { BRLValueformat } from "@/utils";
 import PlanCard from "@/components/cards/PlanCard.vue";
 import OptionCard from "@/components/cards/OptionCard.vue";
+import PaymentData from "@/components/ui/PaymentData.vue";
+import emptyImg from "@/assets/imgs/empty.svg";
 
 export default {
     name: "PlansView",
-    components: { PlanCard, OptionCard },
+    components: { PlanCard, OptionCard, PaymentData, ArrowLeft },
     data() {
+        const plan = this.$store.state.planSelected;
+
         return {
+            emptyImg,
             loading: false,
             methodSelected: '',
             name: "",
             email: "",
-            tasksImg,
             selected: 0,
-            planSelected: this.$store.state.planSelected,
-            implantation: { ...this.$store.state.planSelected.implantation },
+            planSelected: plan,
+            implantation: {
+                ...(plan?.implantation ?? {
+                    selection: false,
+                    oldPrice: 40,
+                    newPrice: 25
+                })
+            },
             paymentMethods: [
                 { label: 'Cartão de Crédito', value: 'credito' },
                 { label: 'Pix', value: 'pix' },
@@ -212,28 +223,41 @@ export default {
                 boleto: 'Boleto Bancário'
             };
             return labels[this.methodSelected] || '';
-        },
-        selectedPrice() {
-            const plan = this.planSelected.paymentPlans.find((p) => p.id === this.selected);
-            return plan.priceDiscount ? plan.priceDiscount : this.planSelected.price;
         }
     },
 
     mounted() {
-        if (!this.planSelected || Object.keys(this.planSelected).length === 0) {
-            this.$router.push({ name: 'PlansView' });
-        }
-        console.log(this.implantation)
+
     },
     methods: {
+        goBack() {
+            const hasHistory = window.history.length > 1;
+
+            if (hasHistory && document.referrer.includes(window.location.origin)) {
+                this.$router.back();
+            } else {
+                this.$router.push({ name: 'PlansView' });
+            }
+        },
+        validateCardDate(validity) {
+            const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (!regex.test(validity)) {
+                return false;
+            }
+
+            const [month, year] = validity.split('/').map(val => parseInt(val, 10));
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth() + 1;
+            const currentYear = currentDate.getFullYear() % 100;
+
+            if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                return false;
+            }
+
+            return true;
+        },
         formatPrice(price) {
             return BRLValueformat(price);
-        },
-        formatValue(value) {
-            return Valueformat(value);
-        },
-        addImplantation() {
-            this.implantation.selection = !this.implantation.selection
         },
         finishCheckout() {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -251,7 +275,12 @@ export default {
                 this.errors.cardNumber = !cardNumber || cardNumber.length !== 16;
                 this.errors.cardName = !this.card.name;
                 this.errors.cardValidity = !validity || !/^\d{2}\/\d{2}$/.test(validity) || !this.validateCardDate(validity);
-                this.errors.cardCvv = !this.card.cvv || !/^\d{3,4}$/.test(this.card.cvv);
+                this.errors.cardCvv = !this.card.cvv || !/^\d{3}$/.test(this.card.cvv);
+                console.log(this.errors.cardValidity)
+                console.log(this.card.validity)
+                console.log(this.errors.cardCvv)
+                console.log(this.card.cvv)
+
             } else {
                 this.errors.cardNumber = false;
                 this.errors.cardName = false;
@@ -275,6 +304,8 @@ export default {
 
                     this.$store.commit('setOrderNumber')
                     this.$store.commit('setPayment', {
+                        name: this.name,
+                        email: this.email,
                         total: this.toPayTotal,
                         method: this.methodSelected
                     })
@@ -304,16 +335,13 @@ export default {
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
-    align-items: start; justify-content: start;
+    align-items: start;
+    justify-content: start;
     gap: 10px;
 }
 
-.button-finish {
-    font-size: 1.1rem;
-}
+@media (max-width:600px) {
 
-
-@media (max-width:576px) {
     .resume-block {
         padding: 0px;
         margin-bottom: 10px;
@@ -321,11 +349,9 @@ export default {
 
     .payment-block {
         padding: 10px 0px;
+        margin-bottom: 150px;
     }
 
-    .button-finish {
-        width: 100%;
-    }
 }
 </style>
 <style>
