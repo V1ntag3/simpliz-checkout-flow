@@ -2,7 +2,7 @@
   <v-container style="max-width: 400px;">
     <v-row justify="center" align="center">
       <v-col cols="12">
-        <v-card class="pa-3 receipt-border animate__animated animate__fadeInDown" outlined>
+        <v-card v-if="Object.keys(payment).length !== 0" class="pa-3 receipt-border animate__animated animate__fadeInDown" outlined>
           <v-row>
             <v-col cols="12" class="text-center pa-0">
               <h1>Pedido Finalizado</h1>
@@ -107,20 +107,22 @@ import { checkPlanOrRedirect } from '@/helpers/planVerify'
 export default {
   name: "OrderFinalization",
   data() {
+    const plan = this.$store.state.planSelected || {};
+    const payment = this.$store.state.payment || {};
+
     return {
       finishConfirm,
       finishPending,
-      planSelected: this.$store.state.planSelected,
       orderNumber: this.$store.state.orderNumber,
-      method: this.$store.state.payment.method || '',
-      total: this.$store.state.payment.total,
-      name: this.$store.state.payment.name,
-      email: this.$store.state.payment.email,
+      total: payment.total || 0,
+      planSelected: plan,
+      name: payment.name,
+      email: payment.email,
     };
   },
   computed: {
     status() {
-      return this.$store.state.payment.method !== 'boleto'
+      return this.$store.state.payment?.method !== 'boleto'
     }
   },
   methods: {
@@ -133,11 +135,13 @@ export default {
       store: this.$store.state.payment,
       router: this.$router,
       toast: this.$toast,
-    }),
-      setTimeout(() => {
-        this.$store.commit('resetState')
-      }, 400)
-  }
+    })
+
+    setTimeout(() => {
+      this.$store.commit('resetState')
+    }, 400)
+  },
+
 };
 </script>
 
